@@ -23,9 +23,43 @@ export default class MdToPandoc extends Plugin {
             return;
         }
 
-        const fileContents = await this.app.vault.read(activeFile);
+        let fileContents = await this.app.vault.read(activeFile);
+
+        fileContents = this.processContents(fileContents);
+        
 
         new Notice(fileContents);
+    }
+
+    private processContents(content: string): string {
+        content = this.convertEquationLabelsAndRefs(content)
+        content = this.convertMath(content);
+
+        return content;
+    }
+
+    // Convert to math that conforms with pandoc better
+    private convertMath(content: string): string {
+        // Replace paired "$$" markers with LaTeX equation environment wrappers
+        let isOpening = true;
+        content = content.replace(/\$\$/g, () => {
+            const rep = isOpening ? "\\begin{equation}" : "\\end{equation}";
+            isOpening = !isOpening;
+            return rep;
+        });
+
+        content = content.replace(/\\begin\{align\}/g, '\\begin{aligned}');
+        content = content.replace(/\\end\{align\}/g, '\\end{aligned}');
+
+        return content;
+    }
+
+    
+    private convertEquationLabelsAndRefs(content: string): string {
+
+
+
+        return content;
     }
 }
 
