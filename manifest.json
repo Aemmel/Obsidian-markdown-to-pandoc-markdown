@@ -1,11 +1,10 @@
 {
-	"id": "sample-plugin",
-	"name": "Sample Plugin",
+	"id": "md-to-pandoc",
+	"name": "Markdown to Pandoc converter",
 	"version": "1.0.0",
 	"minAppVersion": "0.15.0",
-	"description": "Demonstrates some of the capabilities of the Obsidian API.",
-	"author": "Obsidian",
-	"authorUrl": "https://obsidian.md",
-	"fundingUrl": "https://obsidian.md/pricing",
+	"description": "Convert obsidian markdown to pandoc markdown which can be exported to PDF.",
+	"author": "Emil Donkersloot",
+	"authorUrl": "https://github.com/Aemmel",
 	"isDesktopOnly": false
 }
