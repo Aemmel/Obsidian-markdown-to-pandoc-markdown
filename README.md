@@ -1,8 +1,9 @@
 # Obsidian markdown to pandoc markdown
 
-This is a plugin for the Obsidian markdown editor.
-The idea of this plugin is to allow for a good conversion of notes to PDF via pandoc. It creates a new note in a temporary location with not only the file's contents but also the contents of the linked files/sections/equations. 
-This is converted to a pandoc ready format and pandoc is invoked to convert it into a nice looking PDF.
+Obsidian plugin to convert an 'Obsidian-flavored' markdown file to a markdown+LaTeX Hybrid which can be converted to PDF via pandoc.
+Most importantly, internal links are translated correctly, while external links stay as they are with the double bracket notation [[...]].
+
+TODO: at some point, I would like to implement the correct handling of external links, such that they get implemented as the appendix. Shouldn't be too difficult with the scaffolding I have in place.
 
 
 ## API Documentation
